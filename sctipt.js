@@ -1,6 +1,9 @@
 
 var Hitrn = 0;
 var score = 0;
+var Bacground_music = new Audio("bg.mp3");
+var incorrect_sound = new Audio("incorrect.mp3")
+var Win_sound = new Audio("win.mp3")
 var gameOver = document.getElementById("gameOver")
 gameOver.style.display = "none"
 function bubbleMaker() {
@@ -21,14 +24,19 @@ function timer() {
         }
 
         else {
+            Bacground_music.pause()
+            Win_sound.play()
             clearInterval(interval);
             document.getElementById("bubble-container").innerHTML = ``
-            document.getElementById("urScore").innerHTML = `your score is : ${score}`
+            document.getElementById("urScore").innerHTML = `your score is :<b> ${score}<b/>`
             gameOver.style.display = "flex"
 
             document.getElementById("ok").addEventListener("click", function () {
                 gameOver.style.display = "none"
+                document.getElementById("bubble-container").style.display = "none"
                 document.getElementById("startBtn").style.display = "flex"
+                Win_sound.pause()
+                
             })
 
 
@@ -44,13 +52,14 @@ function addTheScore() {
 
 }
 function bubbleValue() {
-    document.getElementById("bubble-container").addEventListener("click", (details) => {
+    document.getElementById("bubble-container").addEventListener("click",function (details) {
         console.log(details.target)
         if (Number(details.target.innerText) === Hitrn) {
             score += 10
             document.getElementById("scoreVal").innerText = score
             hit()
             bubbleMaker()
+            incorrect_sound.pause()
         }
         else {
             details.target.style.backgroundColor = "red"
@@ -58,6 +67,7 @@ function bubbleValue() {
                 hit()
                 bubbleMaker()
                 clearInterval(smallInt)
+                incorrect_sound.play()
             }, 300)
 
 
@@ -68,7 +78,8 @@ function bubbleValue() {
 
 
 document.getElementById("startBtn").addEventListener("click", function gameStart() {
-
+    document.getElementById("bubble-container").style.display = "flex"
+    Bacground_music.play()
     document.getElementById("startBtn").style.display = "none"
     score = 0;
     document.getElementById("scoreVal").innerText = score

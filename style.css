@@ -91,9 +91,7 @@
     border-radius: 10px;
     text-align: center;
 }
-.hidden{
-    display: none;
-}
+
 .fa-triangle-exclamation{
     color: rgb(251, 85, 38);
 }
