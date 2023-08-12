@@ -12,7 +12,7 @@ function bubbleMaker() {
     }
 }
 function timer() {
-    var Coundown = 60;
+    var Coundown = 5;
     var interval = setInterval(function () {
         if (Coundown > 0) {
             Coundown--
@@ -25,12 +25,12 @@ function timer() {
             document.getElementById("bubble-container").innerHTML = ``
             document.getElementById("urScore").innerHTML = `your score is : ${score}`
             gameOver.style.display = "flex"
-            
-            document.getElementById("ok").addEventListener("click",function(){
+
+            document.getElementById("ok").addEventListener("click", function () {
                 gameOver.style.display = "none"
-            document.getElementById("startBtn").style.display = "flex"
+                document.getElementById("startBtn").style.display = "flex"
             })
-            
+
 
         }
     }, 1000)
@@ -41,27 +41,26 @@ function hit() {
     document.getElementById("hitVal").innerHTML = Hitrn
 }
 function addTheScore() {
-    score += 10
-    document.getElementById("scoreVal").innerText = score
+
 }
 function bubbleValue() {
     document.getElementById("bubble-container").addEventListener("click", (details) => {
-console.log(details.target)
+        console.log(details.target)
         if (Number(details.target.innerText) === Hitrn) {
-            console.log("kemne ki ")
-            addTheScore()
+            score += 10
+            document.getElementById("scoreVal").innerText = score
             hit()
             bubbleMaker()
         }
         else {
             details.target.style.backgroundColor = "red"
-            var smallInt = setInterval(function(){
+            var smallInt = setInterval(function () {
                 hit()
-            bubbleMaker()
-            clearInterval(smallInt)
-            },300)
-            
-            
+                bubbleMaker()
+                clearInterval(smallInt)
+            }, 300)
+
+
         }
     })
 }
@@ -70,14 +69,16 @@ console.log(details.target)
 
 document.getElementById("startBtn").addEventListener("click", function gameStart() {
 
-        document.getElementById("startBtn").style.display = "none"
-        hit();
-        bubbleMaker();
-        timer();
-        bubbleValue()
-        
-    
-    
+    document.getElementById("startBtn").style.display = "none"
+    score = 0;
+    document.getElementById("scoreVal").innerText = score
+    hit();
+    bubbleMaker();
+    timer();
+    bubbleValue()
+
+
+
 
 
 })
