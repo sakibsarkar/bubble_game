@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bubble game</title>
+</head>
+
+<body>
+    <div id="main">
+
+        <div class="container">
+
+            <div class="top">
+
+                <div>
+                    <h1>Timer <i class="fa-solid fa-stopwatch"></i></h1>
+                    <h1 id="timeVal">60</h1>
+                </div>
+
+                <div>
+                    <h1>Hit <i class="fa-solid fa-hashtag"></i></h1>
+                    <h1 id="hitVal">00</h1>
+                </div>
+
+                <div>
+                    <h1>Score <i class="fa-solid fa-flag-checkered"></i></h1>
+                    <h1 id="scoreVal">00</h1>
+                </div>
+                <div id="startBtn">
+                    <p id="strTXT">Start Game</p> <i class="fa-solid fa-play"></i>
+                </div>
+
+            </div>
+
+            <div id="bubble-container">
+                <!-- There we wlll store all the bubbles -->
+            </div>
+
+            
+        </div>
+        <!-- game over popup -->
+        <div id="gameOver" class="hidden">
+            <h1>Bruh! the game is over <i class="fa-solid fa-triangle-exclamation"></i></h1>
+            <p id="urScore"> your score is : 1000</p>
+            <button id="ok">OK</button>
+        </div>
+        <script src="https://kit.fontawesome.com/19c0e07b44.js" crossorigin="anonymous"></script>
+        <script src="sctipt.js"></script>
+</body>
+
+</html>
