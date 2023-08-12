@@ -12,7 +12,7 @@ function bubbleMaker() {
     }
 }
 function timer() {
-    var Coundown = 1;
+    var Coundown = 60;
     var interval = setInterval(function () {
         if (Coundown > 0) {
             Coundown--
@@ -55,7 +55,7 @@ function bubbleValue() {
         }
         else {
             hit()
-            bubbeMaker()
+            bubbleMaker()
         }
     })
 }
