@@ -46,7 +46,7 @@ function addTheScore() {
 }
 function bubbleValue() {
     document.getElementById("bubble-container").addEventListener("click", (details) => {
-
+console.log(details.target)
         if (Number(details.target.innerText) === Hitrn) {
             console.log("kemne ki ")
             addTheScore()
@@ -54,8 +54,14 @@ function bubbleValue() {
             bubbleMaker()
         }
         else {
-            hit()
+            details.target.style.backgroundColor = "red"
+            var smallInt = setInterval(function(){
+                hit()
             bubbleMaker()
+            clearInterval(smallInt)
+            },300)
+            
+            
         }
     })
 }
